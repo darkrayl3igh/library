@@ -1,0 +1,32 @@
+from tkinter import *
+from PIL import Image,ImageTk
+bootWindow=Tk()
+bootWindow.geometry("513x346")
+bootWindowImage=Image.open("bootWindowImage.jpg")
+bootWindowBanner=ImageTk.PhotoImage(bootWindowImage)
+bootWindow.title("Welcome to SALA Library")
+bootWindow.tk_setPalette(background="#eeecec")
+bootWindowLogo=Label(bootWindow,width=10,height=5,bd=2,bg="black")
+L1=Label(bootWindow,height=4,width=1,bg="#f04d4c",bd=0)
+L2=Label(bootWindow,height=1,width=6,bg="#f04d4c",bd=0)
+I=Label(bootWindow,height=2,width=1,bg="#f04d4c",bd=0)
+Bi=Label(bootWindow,height=6,width=1,bg="#13759a",bd=0)
+patchBi=Label(bootWindow,height=2,width=5,bg="#eeecec",bd=0)
+bootWindowImage=Label(bootWindow,image=bootWindowBanner,width=500,height=244,bd=2,bg="black")
+
+loginButton=Button(bootWindow,text="Login",font="corbel 11",bd=0,bg="#f04d4c",width=9,fg="white",activebackground="#f4d984")
+registerButton=Button(bootWindow,text="Register",font="corbel 11",bd=0,bg="#f04d4c",width=10,fg="white",activebackground="#f4d984")
+bootWindowImage.place(x=5,y=94,border=INSIDE)
+bootWindowLogo.place(x=5,y=5,border=INSIDE)
+L1.place(x=12,y=15,border=INSIDE)
+L2.place(x=12,y=60,border=INSIDE)
+I.place(x=42,y=25,border=INSIDE)
+Bi.place(x=65,y=5,border=INSIDE)
+patchBi.place(x=40,y=86,border=INSIDE)
+loginButton.place(x=316,y=13,border=INSIDE)
+registerButton.place(x=416,y=13,border=INSIDE)
+import loginPage
+loginButton.bind("<Button-1>",loginPage.loginPageCreator)
+import registerPage
+registerButton.bind("<Button-1>",registerPage.registrationPageCreator)
+bootWindow.mainloop()
